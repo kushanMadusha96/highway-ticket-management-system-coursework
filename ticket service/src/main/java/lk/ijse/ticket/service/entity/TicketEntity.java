@@ -29,7 +29,5 @@ public class TicketEntity {
     @Column(nullable = false)
     private Double fineAmount;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id", nullable = false)
-//    private User user;
+
 }

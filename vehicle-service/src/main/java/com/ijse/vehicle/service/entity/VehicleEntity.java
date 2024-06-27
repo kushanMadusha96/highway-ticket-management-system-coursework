@@ -1,4 +1,4 @@
-package com.ijse.vehicle_service.entity;
+package com.ijse.vehicle.service.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,7 +30,6 @@ public class VehicleEntity {
     @Column(nullable = false)
     private Integer manufactureYear;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id", nullable = false)
-//    private User user;
+    @Column(nullable = false)
+    private Long userId;
 }

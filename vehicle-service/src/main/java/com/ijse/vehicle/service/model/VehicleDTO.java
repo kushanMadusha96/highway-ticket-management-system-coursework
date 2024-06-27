@@ -18,5 +18,5 @@ public class VehicleDTO {
     private String manufacturer;
     private String model;
     private Integer manufactureYear;
-    private String userId;
+    private Long userId;
 }

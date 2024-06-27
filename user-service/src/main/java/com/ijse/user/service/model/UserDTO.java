@@ -1,4 +1,4 @@
-package com.ijse.user_service.model;
+package com.ijse.user.service.model;
 
 import com.ijse.user_service.role.UserRole;
 import jakarta.persistence.*;
@@ -21,10 +21,4 @@ public class UserDTO {
     private String password;
     @Email(message = "invalid email type")
     private String email;
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
-    @NotNull(message = "require username")
-    private String ticketId;
-    @NotNull(message = "require username")
-    private String vehicleId;
 }

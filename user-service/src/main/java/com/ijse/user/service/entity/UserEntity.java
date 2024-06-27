@@ -1,4 +1,4 @@
-package com.ijse.user_service.entity;
+package com.ijse.user.service.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,13 +23,4 @@ public class UserEntity {
 
     @Column(nullable = false, unique = true)
     private String email;
-
-    @Column(nullable = false)
-    private String role;
-
-//    @OneToMany(mappedBy = "user")
-//    private List<Ticket> tickets;
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<Vehicle> vehicles;
 }
