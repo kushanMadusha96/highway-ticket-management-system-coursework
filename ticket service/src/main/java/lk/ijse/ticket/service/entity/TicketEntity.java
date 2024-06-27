@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class TicketEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long ticketId;
 
     @Column(nullable = false)
     private String vehicleNumber;
@@ -29,5 +29,6 @@ public class TicketEntity {
     @Column(nullable = false)
     private Double fineAmount;
 
-
+    @Column(nullable = false)
+    private String userId;
 }

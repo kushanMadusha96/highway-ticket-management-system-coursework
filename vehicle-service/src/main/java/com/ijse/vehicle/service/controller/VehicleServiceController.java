@@ -82,4 +82,15 @@ public class VehicleServiceController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("can't get vehicles data, try again");
         }
     }
+
+    @GetMapping("/vehicleById/{vehicleId}")
+    public ResponseEntity getVehicleById(@PathVariable Long vehicleId) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(vehicleService.getVehicleById(vehicleId));
+        }catch (VehicleNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("can't found vehicle");
+        }catch (DataReadException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("server error, can't get vehicle");
+        }
+    }
 }

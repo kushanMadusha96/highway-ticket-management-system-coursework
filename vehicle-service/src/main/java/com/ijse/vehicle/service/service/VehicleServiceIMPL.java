@@ -63,4 +63,13 @@ public class VehicleServiceIMPL implements VehicleService{
             throw new DataReadException();
         }
     }
+
+    @Override
+    public VehicleDTO getVehicleById(Long vehicleId) {
+        try {
+            return mapper.toVehicleDTO(vehicleRepo.findById(vehicleId).orElseThrow(() -> new VehicleNotFoundException()));
+        }catch (Exception e) {
+            throw new DataReadException();
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package lk.ijse.ticket.service;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -19,6 +20,11 @@ public class TicketServiceApplication {
 	@LoadBalanced
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
+	}
+
+	@Bean
+	public ModelMapper mapper() {
+		return new ModelMapper();
 	}
 
 }

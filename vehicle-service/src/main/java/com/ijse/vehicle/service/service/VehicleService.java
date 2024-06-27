@@ -11,4 +11,5 @@ public interface VehicleService {
 
     List<VehicleDTO> getAllVehicles();
 
+    VehicleDTO getVehicleById(Long vehicleId);
 }
