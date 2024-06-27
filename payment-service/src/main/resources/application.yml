@@ -23,6 +23,6 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 server:
   servlet:
-    context-path: /payment
+    context-path: /highway
   port: 8084
 
