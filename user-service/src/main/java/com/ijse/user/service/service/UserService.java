@@ -9,5 +9,7 @@ public interface UserService {
     UserDTO registerUser(UserDTO newUser);
 
     UserDTO updateProfile(Long userId, UserDTO newUser);
+
+    UserDTO getUserById(Long userId);
 }
 

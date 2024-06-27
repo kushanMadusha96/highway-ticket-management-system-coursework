@@ -1,10 +1,12 @@
 package com.ijse.user.service.controller;
 import com.ijse.user.service.exception.DataNotEffectException;
+import com.ijse.user.service.exception.DataReadException;
 import com.ijse.user.service.exception.UserNotFountException;
 import com.ijse.user.service.model.UserDTO;
 import com.ijse.user.service.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -59,6 +61,17 @@ public class UserController {
         }catch (DataNotEffectException e) {
             logger.error("user not updated...");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("user not updated");
+        }
+    }
+
+    @GetMapping("/userById/{userId}")
+    public ResponseEntity getUserById(@PathVariable Long userId) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(userService.getUserById(userId));
+        }catch (UserNotFountException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("can't found user");
+        }catch (DataReadException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("server error, can't get user");
         }
     }
 }

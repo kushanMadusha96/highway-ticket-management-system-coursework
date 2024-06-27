@@ -1,5 +1,8 @@
-package com.ijse.vehicle_service.repo;
+package com.ijse.vehicle.service.repo;
 
-public interface VehicleRepo {
+import com.ijse.vehicle.service.entity.VehicleEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface VehicleRepo extends JpaRepository<VehicleEntity,Long> {
 
 }

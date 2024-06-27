@@ -2,6 +2,7 @@ package com.ijse.user.service.service;
 
 import com.ijse.user.service.entity.UserEntity;
 import com.ijse.user.service.exception.DataNotEffectException;
+import com.ijse.user.service.exception.DataReadException;
 import com.ijse.user.service.exception.UserNotFountException;
 import com.ijse.user.service.mapping.Mapping;
 import com.ijse.user.service.model.UserDTO;
@@ -37,6 +38,15 @@ public class UserServiceIMPL implements UserService{
             return mapping.toUserDTO(userEntity);
         }catch (Exception e) {
             throw new DataNotEffectException();
+        }
+    }
+
+    @Override
+    public UserDTO getUserById(Long userId) {
+        try {
+            return mapping.toUserDTO(userRepo.findById(userId).orElseThrow(() -> new UserNotFountException()));
+        }catch (Exception e) {
+           throw new DataReadException();
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.ijse.vehicle.service;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -21,4 +22,8 @@ public class VehicleServiceApplication {
 		return new RestTemplate();
 	}
 
+	@Bean
+	public ModelMapper mapper() {
+		return new ModelMapper();
+	}
 }
